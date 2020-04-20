@@ -4,3 +4,50 @@
 @import 'grid.css';
 @import 'form.css';
 @import 'bucket.css';
+
+*{
+    background-color: #121116;
+    color: #fefbfc;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header{
+    height: 35px;
+    width: 110px;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main > p{
+    font-size: 24px;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.bar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 40px;
+    margin: 20px 0 90px 0;
+}
+
+.bar img{
+    height: 15px;
+    width: auto;
+}
+.stripe{
+    height: 1px;
+    width: 230px;
+    background-color: #fefbfc;
+}
+
+span{
+    color: #1abeec;
+}
