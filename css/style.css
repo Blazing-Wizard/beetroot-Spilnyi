@@ -1,2 +1,6 @@
 @import 'norm.css';
-
+@import 'general.css';
+@import 'container.css';
+@import 'grid.css';
+@import 'form.css';
+@import 'bucket.css';
