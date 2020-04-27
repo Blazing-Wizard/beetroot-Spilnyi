@@ -9,6 +9,10 @@
     color: white;
 }
 
+span,p,h1{
+    cursor: default;
+}
+
 .homepage_container,
 .why_choose_us_container,
 .search_select_enjoy_container,
@@ -74,6 +78,9 @@
     height: 52px;
     width: 137px;
     transition: .7s;
+}
+.search_container span{
+    cursor: pointer;
 }
 
 .search_container button span:not(.search){
