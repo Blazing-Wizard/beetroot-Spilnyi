@@ -73,15 +73,28 @@
     cursor: pointer;
     height: 52px;
     width: 137px;
+    transition: .7s;
 }
 
-.search_container button span{
-    padding-right:15px;
-    padding-left: 20px;
+.search_container button span:not(.search){
+    padding-right:10px;
+    padding-left: 35px;
+    float: left;
+    line-height: 52px;
 }
-  
+
+.search_container button span.search{
+    margin-top: 15px;
+    height: 20px;
+}  
+
+.search_container button img{
+    background-color: white;
+}
+
 .search_container button:hover {
     background-color: var(--default-color-darker);
+    opacity: 0.6;
 }
 
 .homepage_container .Scroll_Down{
@@ -93,6 +106,11 @@
     opacity: 0.6;
     font-size: 0.875rem;
     margin-top: 120px;
+    transition: 0.3s;
+}
+
+.homepage_container .Scroll_Down:hover{
+    transform: translateY(3px);
 }
 
 #navbar_wrap {
@@ -117,6 +135,7 @@
     text-decoration: none;
     font-size: 0.875rem;
     padding: 32px 17px;
+    transition: 0.5s;
 }
 
 #navbar a:first-child{
@@ -132,13 +151,29 @@
     padding-right: 0;
 }
 
-#navbar a:hover {
-    background-color: var(--default-color-darker);
+#navbar a:hover:not(.logo) {
+    background-color: rgba(24, 24, 24, 0.514);
     cursor: pointer;
     text-decoration: underline;
-    transition: 0.5s;
+    opacity: 0.6;
 }
-  
+
+#navbar .logo:hover,
+.footer span:hover {
+    animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
+}
+@keyframes trambling-animation {
+    0%, 50%, 100% {
+        transform: rotate(0deg);
+    }
+    10%, 30% {
+        transform: rotate(-10deg);
+    }
+    20%, 40% {
+        transform: rotate(10deg);
+    }
+}
+
 /* #navbar a.active {
     background-color: var(--default-color-darker);
     color: white;
@@ -180,10 +215,19 @@
     height: 444px;
     width: 45%;
     padding-top: 85px;
+    transition: 0.5s;
 }
 
+.why_choose_us_container .article_why_choose_us:hover{
+    transform: translateY(-5px);
+}
 .why_choose_us_container .img_container{
     width: 475px;
+    transition: 0.5s;
+}
+
+.why_choose_us_container img:hover{
+    transform: scale(0.99);
 }
 
 .why_choose_us_container .img_container img:last-child{
@@ -212,6 +256,7 @@
     flex-direction: row;
     align-items: center;
     height: 40vh;
+    transition: .7s;
 }
 
 .search_select_enjoy_container a{
@@ -229,6 +274,22 @@
 .search_select_enjoy_container a:nth-child(2) span{
     color: #ff6363;
     font-size: 60px;
+}
+.search_select_enjoy_container .nav-element span, img{
+transition: .4s;
+}
+
+ .search_select_enjoy_container  span:hover,
+ .search_select_enjoy_container img:hover{ 
+    transform: scale(1.2);
+}
+
+.search_select_enjoy_container .nav-element{
+    transition: 0.3s;
+}
+
+.search_select_enjoy_container .nav-element:hover{
+    border-bottom: 2px solid white;
 }
 
 .form1_container_wrap{
@@ -250,6 +311,12 @@
     margin-top: 100px;
     font-family: 'Josefin Sans', sans-serif;
     background-color: rgba(29, 23, 23, 0.774);
+    transition: 1s;
+}
+
+.form1_container .article:hover,
+.form2_container .article:hover{
+    background-color: rgba(29, 23, 23, 0.925);
 }
 
 .article:not(p,a){
@@ -299,12 +366,16 @@
 
 .tourist_say_container > .sam_sumon{
     display: flex;
+    transition: 1s;
+}
+.tourist_say_container > .sam_sumon:hover{
+    border: 2px solid white;
 }
 
 .sam_sumon_text{
     background-color: var(--default-background-color);
     width: 665px;
-    padding: 70px 60px 50px 60px;
+    padding: 50px 60px 50px 40px;
 }
 
 .sam_sumon_text > span{
@@ -358,9 +429,15 @@ footer .social_networks {
     display: flex;
     justify-content: space-between;
 }
+footer .social_networks i{
+    transition: .5s;
+}
 
-footer .social_networks i:nth-child(3){
+
+footer .social_networks i:hover{
     color: var(--default-color-darker);
+    transform: scale(1.5);
+    cursor: pointer;
 }
 
 .btn {
@@ -423,24 +500,57 @@ a.btn:hover {
 #navbar a:nth-child(2){
     order: 2;
 }
+.search_select_enjoy_container .nav-element{
+    transform: scale(0.7);
+}
+.why_choose_us_container img:hover{
+    margin-right: 3px;
+}
 .footer{
     display: flex;
     align-items: center;
     width: 100%;
 }
+.sam_sumon_text{
+    width: 100%;
+}
 .sam_sumon > img{
     display: none;
 }
-/* .tourist_say_container > .sam_sumon{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-left: auto;
-    margin-right: auto;
-} */
 }
 @media screen and (max-width: 720px){
-    body{
-        display: none;
-    }
+#navbar{
+    display: none;
+}
+.search_select_enjoy_container .nav-element{
+    transform: scale(0.5);
+}
+.search_select_enjoy_container,
+.search_select_enjoy_container_wrap{
+    height: 17vh;
+}
+#navbar_wrap{
+    display: none;
+}
+.sam_sumon_text{
+    display: none;
+    width: 100vh;
+}
+.sam_sumon > img{
+    display: none;
+}
+.search_container{
+    transform: scale(0.6);
+}
+.img_container{
+    display: none;
+}
+.article_why_choose_us{
+    margin-left: auto;
+    margin-right: auto;
+}
+.form1_container .article,
+.form2_container .article{
+    margin-top: 0;
+}
 }
