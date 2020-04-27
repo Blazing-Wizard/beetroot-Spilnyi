@@ -5,13 +5,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <title>temp</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Bhromaon</title>
 </head>
 
 <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <main>
+        <section class="homepage_container_wrap">
+            <div class="homepage_container">
+                <h1 class="logo">BHROMAON</h1>
+                <p>Safe Travel Anywhere</p>
+                <div class="search_container">
+                    <form>
+                        <input type="text" placeholder="Search Your Travel Destination" name="search">
+                        <button type="submit"><span>SEARCH</span><img
+                                src="fonts/Icon-font-7-stroke-PIXEDEN-v-1.2.0/SVG/search.svg" alt="#"
+                                height="20px"></button>
+                    </form>
+                </div>
+                <div class="Scroll_Down">
+                    <a href="#why_choose_us_container" class="link">Scroll Down<br><img src="img/Scroll_img.png"
+                            alt="˅">
+                    </a>
+                </div>
+            </div>
+            <div id="navbar_wrap">
+                <div id="navbar">
+                    <a href="#" class="logo">BHROMAON</a>
+                    <a href="#" class="nav-element">CONTACT US</a>
+                    <a href="#" class="nav-element">TRAVEL WITH US</a>
+                    <a href="#" class="nav-element">WHAT WE DO</a>
+                    <a href="#" class="nav-element">WHO WE ARE</a>
+                </div>
+            </div>
+        </section>
+        <section class="why_choose_us_container_wrap">
+            <a name="why_choose_us_container"></a>
+            <div class="why_choose_us_container">
+                <div class="article_why_choose_us">
+                    <span>Why Choose Us</span>
+                    <p>Tion and dislike men who are so beguiled and demoralized by desire by the charms of pleasure of
+                        the
+                        moment, so blinded by desire, that they cannot foresee<br><br>Ddislike men who are so beguiled
+                        and
+                        demoralized by the charms of pleasure of the moment, so blinded by desire, that.</p>
+                    <a href="#" class="btn">EXPLORE PLACES</a>
+                </div>
+                <div class="img_container">
+                    <img src="img/why_Choose_us_img_1.png" alt="">
+                    <img src="img/why_Choose_us_img_2.png" alt="">
+                </div>
+            </div>
+        </section>
+        <section class="search_select_enjoy_container_wrap">
+            <div class="search_select_enjoy_container">
+                <a href="#" class="nav-element"><span class="material-icons">
+                        search
+                    </span><br>Search Places</a>
+                <a href="#" class="nav-element"><span class="material-icons">
+                        check_circle_outline
+                    </span><br>Select Places</a>
+                <a href="#" class="nav-element"><img src="/img/thumb.png" alt="" height="60px"><br>Book & Enjoy</a>
+            </div>
+        </section>
+        <section class="form1_container_wrap">
+            <div class="form1_container">
+                <div class="article">
+                    <span>Spain</span>
+                    <span>GRAND SPAIN MADRID</span>
+                    <p>But I must explain to you how all this mistaken idea of account to denouncing pleasure and
+                        praising pain was account born and I account will give you a complete account of the system
+                    </p>
+                    <a href="#" class="btn">BOOK NOW</a>
+                </div>
+            </div>
+        </section>
+        <section class="form2_container_wrap">
+            <div class="form2_container">
+                <div class="article">
+                    <span>Spain</span>
+                    <span>GRAND SPAIN MADRID</span>
+                    <p>But I must explain to you how all this mistaken idea of account to denouncing pleasure and
+                        praising pain was account born and I account will give you a complete account of the system
+                    </p>
+                    <a href="#" class="btn">BOOK NOW</a>
+                </div>
+            </div>
+        </section>
+        <section class="tourist_say_container_wrap">
+            <div class="tourist_say_container">
+                <span>What Our Tourist Say</span>
+                <div class="sam_sumon">
+                    <img src="/img/tourist_say_img.png" alt="">
+                    <div class="sam_sumon_text">
+                        <span>SAM SUMON</span>
+                        <p><img src="img/tourist_say_quote.png" alt=""> But I must explain to you how all this mistaken
+                            idea
+                            of
+                            account to
+                            denouncinpleasure and praising
+                            pain But I must explain to you how all this mistaken idea of account to nai denouncing
+                            pleasure
+                            and
+                            praising pain was account born and I account will give you a complete account of the system
+                            was
+                            account born and I account will give you a nai the complete account of the system</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script>
+            window.onscroll = function () { myFunction() };
+
+            var nnavbar_wrap = document.getElementById("navbar_wrap");
+            var sticky = navbar_wrap.offsetTop;
+
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar_wrap.classList.add("sticky")
+                } else {
+                    navbar_wrap.classList.remove("sticky");
+                }
+            }
+        </script>
+        <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    </main>
+    <footer class="footer_wrap">
+        <div class="footer">
+            <span>BHROMAON</span>
+            <p>Safe Travel Anywhere</p>
+            <div class="social_networks">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin-in"></i>
+                <i class="fab fa-youtube"></i>
+                <i class="fab fa-pinterest-p"></i>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>

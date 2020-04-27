@@ -1,6 +1,446 @@
-@import 'norm.css';
-@import 'general.css';
-@import 'container.css';
-@import 'grid.css';
-@import 'form.css';
-@import 'bucket.css';
+/* @import 'norm.css'; */
+@import 'var.css';
+@import url('https://fonts.googleapis.com/css?family=Aleo|Josefin+Sans:300,400,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+
+.homepage_container,
+.why_choose_us_container,
+.search_select_enjoy_container,
+.form1_container,
+.form2_container,
+.tourist_say_container{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1110px;
+}
+
+.homepage_container,
+.tourist_say_container{
+    height: calc(100% - 80px);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.homepage_container_wrap{
+    background: url("/img/homepage_background.png") no-repeat center center/cover;
+    width: 100%;
+    height: 100vh;
+}
+.homepage_container h1{
+    font-size: 3rem;
+    font-weight: 700;
+}
+.homepage_container p{
+    font-size: 1.375rem;
+    opacity: 0.85;
+    letter-spacing: 0.193em; 
+    padding-left: 5px;  
+    font-weight: 400;
+    margin: 14px 0 50px 0;
+}
+
+.search_container {
+    height: 56px;
+    width: 646px;
+    border: 2px solid white;
+}
+  
+.search_container input[type=text] {
+    height: 52px;
+    width: 505px;
+    font-size: 0.875;
+    letter-spacing: 0.193em; 
+    text-align: center;
+    border: none;
+    color: black;
+}
+  
+.search_container button {
+    float: right;
+    font-family: 'Aleo', serif;
+    background: var(--default-color);
+    font-size: 0.875;
+    border: none;
+    cursor: pointer;
+    height: 52px;
+    width: 137px;
+}
+
+.search_container button span{
+    padding-right:15px;
+    padding-left: 20px;
+}
+  
+.search_container button:hover {
+    background-color: var(--default-color-darker);
+}
+
+.homepage_container .Scroll_Down{
+    text-align: center;
+    cursor: pointer;
+}
+
+.homepage_container .Scroll_Down{
+    opacity: 0.6;
+    font-size: 0.875rem;
+    margin-top: 120px;
+}
+
+#navbar_wrap {
+    overflow: hidden;
+    background-color: var(--default-color);
+    width: 100%;
+    height: 80px;
+}
+  
+#navbar{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1110px;
+    height: 100%;
+    z-index: 4;
+}
+
+#navbar a {
+    float: right;
+    display: block;
+    font-family: 'Aleo', serif; 
+    text-decoration: none;
+    font-size: 0.875rem;
+    padding: 32px 17px;
+}
+
+#navbar a:first-child{
+    float: left;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.5rem;
+    padding: 32px 17px;
+    cursor: pointer;
+    padding-left: 0;
+}
+
+#navbar a:nth-child(2){
+    padding-right: 0;
+}
+
+#navbar a:hover {
+    background-color: var(--default-color-darker);
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 0.5s;
+}
+  
+/* #navbar a.active {
+    background-color: var(--default-color-darker);
+    color: white;
+} */
+  
+.content {
+    padding: 16px;
+}
+  
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+  
+  /* .sticky + .content {
+    padding-top: 60px;
+  } */
+
+.why_choose_us_container_wrap{
+    background: url("/img/wy_chouse_us_background.png") no-repeat center center/cover;
+    width: 100%;
+    height: 78vh;
+}
+
+.why_choose_us_container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+
+.why_choose_us_container .article_why_choose_us{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 444px;
+    width: 45%;
+    padding-top: 85px;
+}
+
+.why_choose_us_container .img_container{
+    width: 475px;
+}
+
+.why_choose_us_container .img_container img:last-child{
+    float: right;
+}
+
+.why_choose_us_container .article_why_choose_us span{
+    font-family: 'Aleo', serif;
+    font-size: 2.25rem;
+}
+
+.why_choose_us_container .article_why_choose_us p{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 26px;
+}
+
+.search_select_enjoy_container_wrap{
+    background-color: var(--default-background-color);
+    width: 100%;
+    height: 37vh;
+}
+
+.search_select_enjoy_container{
+    justify-content: space-around;
+    flex-direction: row;
+    align-items: center;
+    height: 40vh;
+}
+
+.search_select_enjoy_container a{
+    text-decoration: none;
+    text-align: center;
+    font-family: 'Aleo', serif; 
+    font-size: 2.25rem;
+}
+
+.search_select_enjoy_container a:nth-child(1) span{
+    color: #5474fd;
+    font-size: 60px;
+}
+
+.search_select_enjoy_container a:nth-child(2) span{
+    color: #ff6363;
+    font-size: 60px;
+}
+
+.form1_container_wrap{
+      background: url("/img/form1_background.png") no-repeat center center/cover;
+      width: 100%;
+      height: 78vh;
+      display: flex;
+      align-items: center;
+}
+
+.form1_container .article,
+.form2_container .article{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 540px;
+    height: 370px;
+    padding: 50px 30px;
+    margin-top: 100px;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: rgba(29, 23, 23, 0.774);
+}
+
+.article:not(p,a){
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+
+.article p{
+    font-weight: 300;
+    font-size: 1rem;
+    line-height: 26px;
+}
+
+.form2_container_wrap{
+    background: url("/img/form2_background.png") no-repeat center center/cover;
+    width: 100%;
+    height: 78vh;
+    display: flex;
+    align-items: center;
+}
+.form2_container{
+    justify-content: flex-end
+}
+
+.tourist_say_container_wrap{
+    background: url("/img/tourist_say_background.png") no-repeat center center/cover;
+    width: 100%;
+    height: 78vh;
+}
+
+.tourist_say_container{
+    justify-content: space-around;
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 300;
+}
+
+.tourist_say_container > .sam_sumon{
+    width: 1110px;
+}
+
+.tourist_say_container > span{
+    font-family: 'Aleo', serif;
+    font-size: 2.25rem;
+    margin-top: 50px;
+}
+
+.tourist_say_container > .sam_sumon{
+    display: flex;
+}
+
+.sam_sumon_text{
+    background-color: var(--default-background-color);
+    width: 665px;
+    padding: 70px 60px 50px 60px;
+}
+
+.sam_sumon_text > span{
+     font-size: 1.25rem;
+}
+
+.sam_sumon_text > p{
+    margin-top: 60px;
+    font-size: 1rem;
+    line-height: 26px;
+}
+
+.sam_sumon_text p > img{
+    margin-bottom: 16px;
+}
+
+.footer_wrap{
+    background-color: var(--default-background-color);
+    width: 100%;
+    height: 25vh;
+    background-color: #232323;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1110px;
+    height: 100%;
+    padding-top: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+    padding-top: 75px;
+    padding-bottom: 60px;
+}
+
+.footer span{
+    font-size: 1.5rem;
+}
+
+.footer p{
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+footer .social_networks {
+    margin-top: 15px;
+    height: 12px;
+    width: 148.3px;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .social_networks i:nth-child(3){
+    color: var(--default-color-darker);
+}
+
+.btn {
+    color: white;
+    text-decoration: none;
+    font-family: 'Aleo', serif;
+    font-size: 1rem;
+    height: 60px;
+    width: 225px;
+    padding: 22px 0;
+    text-align: center;
+    text-shadow: -1px -1px #000;
+    user-select: none;
+    /* padding: .8em 2em; */
+    outline: none;
+    background-color: #000;
+    background-image: linear-gradient(45deg, rgba(255,255,255,.0) 30%, rgba(255,255,255,.8), rgba(255,255,255,.0) 70%),  linear-gradient(-130deg, #5474fd 0%, #5474fd 60%, #496bfe 60%, #496bfe 100%);
+    background-repeat: no-repeat;
+    background-size: 200% 100%, auto;
+    background-position: 200% 0, 0 0;
+    box-shadow: rgba(0,0,0,.3) 0 2px 5px;
+} 
+
+a.btn:active {
+    top: 1px;
+    box-shadow: none;
+}
+
+a.btn:hover {
+    transition: .9s linear;
+    background-position: -200% 0, 0 0;
+}
+
+@media screen and (max-width: 1110px) {
+.homepage_container,
+.why_choose_us_container,
+.search_select_enjoy_container,
+.form1_container,
+.form2_container,
+.tourist_say_container{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+.tourist_say_container > .sam_sumon{
+    display: flex;
+    align-items: center;
+    width: 100vh;
+
+}
+#navbar{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    justify-content: space-between;
+}
+#navbar a:nth-child(2){
+    order: 2;
+}
+.footer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.sam_sumon > img{
+    display: none;
+}
+/* .tourist_say_container > .sam_sumon{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+} */
+}
+@media screen and (max-width: 720px){
+    body{
+        display: none;
+    }
+}
