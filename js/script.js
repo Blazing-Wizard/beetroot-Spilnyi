@@ -11,13 +11,9 @@ function addArticle(data) {
     return axios.post('/articles', { ... {}, ...data });
 }
 
-function adddArticle(data) {
-    return axios.put('/articles', { ... {}, ...data });
-}
-
 // функция удаления
 function deleteArticle(id) {
-    return axios.delete(`/articles/${id}`)
+    return axios.delete(`/articles/${id}`);
 }
 
 // генератор случайных чисел для картинок
@@ -49,14 +45,15 @@ function editArticle(article) {
 
 // создание маленьких карточек
 function createSmallArticle(article) {
-    const $AboutArticle = $(`<div class="card smallCard" style="width: 18rem;">
-    <img src="${article.picture}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">${article.title}<br></h5>
-        <p class="card-text hideCardText">${article.about}<br><br><br></p>
-        <a class="btn btn-primary">More</a>
-    </div>
-</div>`);
+    const $AboutArticle = $(`
+    <div class="card smallCard" style="width: 18rem;">
+        <img src="${article.picture}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">${article.title}<br></h5>
+            <p class="card-text hideCardText">${article.about}<br><br><br></p>
+            <a class="btn btn-primary">More</a>
+            </div>
+    </div>`);
 
     //отлавливание события (нажатия на кнопку 'More' в маленьких карточках)
     $AboutArticle.find('.btn').on('click', (e) => {
@@ -68,45 +65,49 @@ function createSmallArticle(article) {
 
 // создание большой карточки
 function createAboutArticle(article) {
-    $cardId = article.id
-    const $article = $(`<div class="card-body">
-    <h5 id="bigCardTitle" class="card-title">${article.title}</h5>
-    <p id="bigCardText" class="card-text">${article.about}</p>
-    <a id="edit" class="btn btn-warning">Edit</a>
-    <a id="delete" class="btn btn-danger">Delete</a>
-</div>`);
+    $cardId = article.id;
+    const $article = $(`
+    <div class="card-body">
+        <h5 id="bigCardTitle" class="card-title">${article.title}</h5>
+        <p id="bigCardText" class="card-text">${article.about}</p>
+        <a id="edit" class="btn btn-warning">Edit</a>
+        <a id="delete" class="btn btn-danger">Delete</a>
+    </div>`);
 
     //вызов модального окна подтверждения удаления данных из формы
     $article.find('#delete').on('click', (e) => {
-        createModal()
+        createModal();
     })
 
     //логика редактирования карточки
     $article.find('#edit').on('click', e => {
-        $('#bigCard').html(createEditForm(article))
+        $('#bigCard').html(createEditForm(article));
     })
     return $article;
 }
 
 //форма создания карточки
 function createInputForm() {
-    const $inputForm = $(`<form class="inputForm">
-    <div class="form-group">
-        <label for="DishName">Enter dish name</label>
-        <input type="text" class="form-control" id="DishName">
-        <small class="form-text text-muted">Enter something delicious</small><br>
-        <label for="imgUrl">Enter image URL (leave the field empty
+    const $inputForm = $(`
+    <form class="inputForm">
+        <div class="form-group">
+            <label for="DishName">Enter dish name</label>
+            <input type="text" class="form-control" id="DishName">
+            <small class="form-text text-muted">Enter something delicious</small><br>
+            <label for="imgUrl">Enter image URL (leave the field empty
             and I will add a random picture)</label>
-        <input type="text" class="form-control" id="imgUrl">
-    </div>
-    <div class="form-group">
-        <label for="recipe">Enter recipe</label>
-        <textarea class="form-control" id="recipe" rows="15"></textarea>
-    </div>
-    <button id="cancell" type="button" class="btn btn-secondary" >Cancel</button>
-    <button id="save" type="submit" class="btn btn-primary">Save</button>
-</form>`)
+            <input type="text" class="form-control" id="imgUrl">
+        </div>
+        <div class="form-group">
+            <label for="recipe">Enter recipe</label>
+            <textarea class="form-control" id="recipe" rows="15"></textarea>
+        </div>
+        <button id="cancell" type="button" class="btn btn-secondary" >Cancel</button>
+        <button id="save" type="submit" class="btn btn-primary">Save</button>
+    </form>`);
+
     $('#bigCard').css('display', 'block');
+
     //Сохранение данных из формы
     $inputForm.find('#save').on('click', e => {
         const title = $('#bigCard').find('#DishName').val();
@@ -120,7 +121,7 @@ function createInputForm() {
                 if (resp.data) {
                     resp.data.forEach(article => {
                         showArticle(article);
-                    });
+                    })
                 }
             })
         } else {
@@ -130,15 +131,16 @@ function createInputForm() {
                 if (resp.data) {
                     resp.data.forEach(article => {
                         showArticle(article);
-                    });
+                    })
                 }
             })
         }
-        $inputForm.detach()
+        $inputForm.detach();
     })
+
     // кнопка отмены
     $inputForm.find('#cancell').on('click', e => {
-        $inputForm.detach()
+        $inputForm.detach();
         $('#bigCard').css('display', 'none');
     })
     return $inputForm;
@@ -146,21 +148,23 @@ function createInputForm() {
 
 //форма редактирования карточки
 function createEditForm(article) {
-    const $editArticle = $(`<form class="inputForm">
-    <div class="form-group">
-        <label for="DishName">Dish name</label>
-        <input type="text" class="form-control" id="DishName" value="${article.title}"><br>
-        <label for="imgUrl">Image URL (leave the field empty
+    const $editArticle = $(`
+    <form class="inputForm">
+        <div class="form-group">
+            <label for="DishName">Dish name</label>
+            <input type="text" class="form-control" id="DishName" value="${article.title}"><br>
+            <label for="imgUrl">Image URL (leave the field empty
             and I will add a random picture)</label>
-        <input type="text" class="form-control" id="imgUrl">
-    </div>
-    <div class="form-group">
-        <label for="recipe">Recipe</label>
-        <textarea class="form-control" id="recipe" rows="15" >${article.about}</textarea>
-    </div>
-    <button id="cancel" type="button" class="btn btn-secondary" >Cancel</button>
-    <button id="save" type="submit" class="btn btn-primary">Save</button>
-</form>`)
+            <input type="text" class="form-control" id="imgUrl">
+        </div>
+        <div class="form-group">
+            <label for="recipe">Recipe</label>
+            <textarea class="form-control" id="recipe" rows="15" >${article.about}</textarea>
+        </div>
+        <button id="cancel" type="button" class="btn btn-secondary" >Cancel</button>
+        <button id="save" type="submit" class="btn btn-primary">Save</button>
+    </form>`);
+
     $('#bigCard').css('display', 'block');
 
     //Сохранение данных из формы
@@ -176,7 +180,7 @@ function createEditForm(article) {
                 if (resp.data) {
                     resp.data.forEach(article => {
                         showArticle(article);
-                    });
+                    })
                 }
             })
         } else {
@@ -190,9 +194,10 @@ function createEditForm(article) {
                 }
             })
         }
-        deleteArticle($cardId)
-        $editArticle.detach()
+        deleteArticle($cardId);
+        $editArticle.detach();
     })
+
     // кнопка отмены в форме
     $editArticle.find('#cancel').on('click', e => {
         showAboutArticle(article);
@@ -203,46 +208,43 @@ function createEditForm(article) {
 
 //модалка
 function createModal() {
-    const $myModal = $(`<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title" id="exampleModalLabel">Are you sure?</h2>
+    const $myModal = $(`
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="exampleModalLabel">Are you sure?</h2>
+                </div>
+                <div class="modal-body">
+                    <img src="https://media.giphy.com/media/3ohzAKkcyuLEIiI9Wg/giphy.gif" width="466px" alt="...">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <button id="modalYes" type="button" class="btn btn-danger">Yes GTFO</button>
+                </div>
+            </div>
         </div>
-        <div class="modal-body">
-        <img src="https://media.giphy.com/media/3ohzAKkcyuLEIiI9Wg/giphy.gif" width="466px" alt="...">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-          <button id="modalYes" type="button" class="btn btn-danger">Yes GTFO</button>
-        </div>
-      </div>
-    </div>
-  </div>`);
+    </div>`);
+
     // добавление модального окна в ДОМ
     $myModal.appendTo('body');
     $myModal.modal('toggle');
     $myModal.on('hidden.bs.modal', () => {
         $myModal.detach();
     })
+
     // удаление карточки
     $('#modalYes').on('click', (e) => {
         // console.log('im work')
-        deleteArticle($cardId)
-        $article.detach()
+        deleteArticle($cardId);
+        $article.detach();
     })
 }
 
-// настройки слайдера
+// настройки слайдера + медиа запрос
 if (window.matchMedia('(max-width: 1020px)').matches) {
-    // do functionality on screens smaller than 768px
+    // do functionality on screens smaller than 1020px
     $(document).ready(function () {
-        // $('.slider').slick({
-        //     infinite: true,
-        //     аccessibility: true,
-        //     slidesToShow: 4,
-        //     slidesToScroll: 4
-        // });
         $('.slider').slick({
             slidesToShow: 3,
             slidesToScroll: 3,
@@ -251,16 +253,9 @@ if (window.matchMedia('(max-width: 1020px)').matches) {
             arrows: true
         });
     });
-}
-else {
+} else {
     // change functionality for larger screens
     $(document).ready(function () {
-        // $('.slider').slick({
-        //     infinite: true,
-        //     аccessibility: true,
-        //     slidesToShow: 6,
-        //     slidesToScroll: 6
-        // });
         $('.slider').slick({
             slidesToShow: 4,
             slidesToScroll: 4,
@@ -289,8 +284,9 @@ $(document).ready(() => {
     //отлавливание события (нажатия на кнопку 'Click to add')
     //показ полного содержимого формы
     $('#newCard').on('click', e => {
-        $('#bigCard').html(createInputForm())
+        $('#bigCard').html(createInputForm());
     })
+
     if ($(document).height() <= $(window).height()) {
         $(".page-footer").addClass("fixed-bottom");
     }
